@@ -1,0 +1,14 @@
+{
+    "manifest_version": 2,
+    "name": "Dynapaste",
+    "version": "0.1",
+    "background": {
+         "scripts": ["main.js"],
+         "persistent": true
+    },
+    "options_ui": {
+      "page":"options.html",
+      "open_in_tab": false
+    },
+    "permissions": ["contextMenus", "storage", "clipboardWrite", "https://dynalist.io/api/*"]
+}
