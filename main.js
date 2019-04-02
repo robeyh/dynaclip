@@ -29,8 +29,6 @@ const pasteFrom = (nodeId, nodes, evt, tab) => {
       event.clipboardData.setData("text/plain", nodes[nodeId].content);
   };
   document.execCommand("copy", false, null);
-  chrome.tabs.getCurrent((tab) => tab.execCommand("paste", false, null) );
-  
 };
 
 const createMenuItem = (nodes, nodeId, parentId) => {
