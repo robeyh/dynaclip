@@ -1,15 +1,17 @@
 
 const makeMenus = (dlist) => {
   const nodes = {};
-  dlist.nodes.map(obj => nodes[obj.id] = obj);
-  chrome.contextMenus.removeAll();
+  var rootId;
+  if(dlist.nodes){
+    dlist.nodes.map(obj => nodes[obj.id] = obj);
+    chrome.contextMenus.removeAll();
+    rootId = createMenuItem( nodes, 'root', undefined );
 
-  var rootId = createMenuItem( nodes, 'root', undefined );
-
-  chrome.contextMenus.create({
-    type: "separator",
-    parentId: rootId
-  });
+    chrome.contextMenus.create({
+      type: "separator",
+      parentId: rootId
+    });
+  }
   
   chrome.contextMenus.create({
     title: "Reload Settings and Doc",
